@@ -98,7 +98,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="p-2 border border-border rounded-lg hover:border-accent/50 hover:bg-accent/10 transition-all"
                     aria-label={social.label}
                     initial={{ opacity: 0, scale: 0 }}

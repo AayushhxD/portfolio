@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { Github, ExternalLink } from "lucide-react"
 
 export default function Projects() {
   const [flipped, setFlipped] = useState<number | null>(null)
@@ -25,6 +26,8 @@ export default function Projects() {
       ],
       tech: ["Flutter", "Firebase", "Dart", "REST APIs"],
       keyFeatures: ["Customer Database", "Lead Tracking", "Sales Pipeline", "Real-time Sync", "Analytics Dashboard"],
+      github: "https://github.com/AayushhxD/CRM-Application",
+      demo: "#",
     },
     {
       title: "Diet Planner Application",
@@ -42,6 +45,8 @@ export default function Projects() {
       ],
       tech: ["JavaFX", "MySQL", "Java", "JDBC"],
       keyFeatures: ["Meal Planning", "Calorie Tracking", "Nutrition Analysis", "User Profiles", "Progress Charts"],
+      github: "https://github.com/AayushhxD/Java-Project",
+      demo: "#",
     },
     {
       title: "NYAYY – Legal Assistance Mobile App",
@@ -65,6 +70,8 @@ export default function Projects() {
         "Real-time Notifications",
         "Legal Database",
       ],
+      github: "https://github.com/AayushhxD/Android-Projects-/tree/main/NYAAY",
+      demo: "#",
     },
   ]
 
@@ -121,8 +128,32 @@ export default function Projects() {
                   <p className="text-muted-foreground text-sm leading-relaxed line-clamp-4">
                     {project.shortDescription}
                   </p>
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <p className="text-xs text-muted-foreground text-center">Hover to flip →</p>
+                  <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                    <div className="flex gap-2">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        className="p-2 border border-border rounded-lg hover:border-accent/50 hover:bg-accent/10 transition-all group"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label="View GitHub Repository"
+                      >
+                        <Github className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+                      </a>
+                      {project.demo !== "#" && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="p-2 border border-border rounded-lg hover:border-accent/50 hover:bg-accent/10 transition-all group"
+                          onClick={(e) => e.stopPropagation()}
+                          aria-label="View Live Demo"
+                        >
+                          <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground">Hover to flip →</p>
                   </div>
                 </div>
 
@@ -197,9 +228,35 @@ export default function Projects() {
                 className="border border-border rounded-xl p-8 bg-card hover:border-accent/50 transition-all"
               >
                 <div className="mb-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-3 h-3 rounded-full bg-accent"></div>
-                    <span className="text-sm font-semibold text-accent uppercase tracking-wider">{project.period}</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-accent"></div>
+                      <span className="text-sm font-semibold text-accent uppercase tracking-wider">{project.period}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        className="px-4 py-2 border-2 border-primary text-primary rounded-lg hover:bg-primary/10 transition-all flex items-center gap-2 text-sm font-semibold"
+                        aria-label="View source code on GitHub"
+                      >
+                        <Github className="w-4 h-4" />
+                        View Code
+                      </a>
+                      {project.demo !== "#" && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="px-4 py-2 border-2 border-accent text-accent rounded-lg hover:bg-accent/10 transition-all flex items-center gap-2 text-sm font-semibold"
+                          aria-label="View live demo"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <h4 className="text-2xl font-bold text-foreground mb-1">{project.title}</h4>
                   <p className="text-accent font-medium">{project.subtitle}</p>

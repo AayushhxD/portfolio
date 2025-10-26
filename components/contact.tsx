@@ -188,7 +188,7 @@ export default function Contact() {
                       key={idx}
                       href={social.href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className={`p-3 border border-border rounded-lg hover:border-accent/50 hover:bg-accent/10 transition-all ${social.color}`}
                       aria-label={social.label}
                       whileHover={{ scale: 1.1, rotate: 10 }}
